@@ -86,6 +86,7 @@ GO
 -- Create Geny2
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name='Geny2')
     BEGIN
+		PRINT 'CREATE User Geny2'
         CREATE USER Geny2 FOR LOGIN LoginGeny2;
     END
 
@@ -108,6 +109,7 @@ GO
 
 IF NOT EXISTS(SELECT * FROM sys.database_principals WHERE name='GenyDW')
     BEGIN
+		PRINT 'CREATE User GenyDW'
         CREATE USER GenyDW FOR LOGIN LoginGeny2;
     END
 
@@ -120,6 +122,7 @@ GO
 
 IF NOT EXISTS(SELECT * FROM sys.database_principals WHERE name='Geny3')
 BEGIN
+	PRINT 'CREATE User Geny3'
     CREATE USER Geny3 FOR LOGIN LoginGeny3;
 END
 ALTER SERVER ROLE dbcreator ADD MEMBER LoginGeny3
